@@ -11,28 +11,43 @@ public class unityChanControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (GetComponent<NetworkView>().isMine) {
+						//  run & turn
+						if (Input.GetKey ("up")) {
+								animator.SetBool ("is_run", true);
+								transform.position += transform.forward * 0.1f;
+						} else {
+								animator.SetBool ("is_run", false);
+						}
 
-		 //  run & turn
-		if (Input.GetKey ("up")) {
-			animator.SetBool("is_run", true);
-			transform.position += transform.forward * 0.1f;
-		} else {
-			animator.SetBool("is_run", false);
-		}
+						if (Input.GetKey ("right")) {
+								transform.Rotate (0, 5, 0);
+						}
+						if (Input.GetKey ("left")) {
+								transform.Rotate (0, -5, 0);
+						}
 
-		if (Input.GetKey("right")) {
-			transform.Rotate(0, 5, 0);
-			}
-		if (Input.GetKey ("left")) {
-				transform.Rotate(0, -5, 0);
-			}
+						// jump
+						if (Input.GetKey ("space")) {
+								animator.SetBool ("is_jump", true);
+						} else {
+								animator.SetBool ("is_jump", false);
+						}
 
-		// jump
-		if(Input.GetKey( "space")){
-			animator.SetBool("is_jump", true);
-		}else{
-			animator.SetBool("is_jump", false);
-		}
+						// jab
+						if (Input.GetKey ("a")) {
+								animator.SetBool ("is_jab", true);
+						} else {
+								animator.SetBool ("is_jab", false);
+						}
 
-		}
+						// hikick
+						if (Input.GetKey ("s")) {
+								animator.SetBool ("is_hikick", true);
+						} else {
+								animator.SetBool ("is_hikick", false);
+						}
+				}
+
+	}
 }

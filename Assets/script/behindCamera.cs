@@ -13,7 +13,7 @@ public class behindCamera : MonoBehaviour {
 	void Update () {
 		
 		//プレイヤーどの位置に置くか
-		transform.position = new Vector3(player.transform.position.x, player.transform.position.y + 2, player.transform.position.z - 4);
+		transform.position = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z);
 		transform.rotation = new Quaternion (0, player.transform.rotation.y, 0, player.transform.rotation.w);
 //		transform.rotation = player.transform.rotation;
 
